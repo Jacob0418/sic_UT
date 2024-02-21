@@ -13,7 +13,7 @@
     <header class="w-full sticky bg-[#009781]">
         <nav>
             <div class="container py-3 mx-auto md:mx-5 flex flex-wrap px-2 md:gap-4">
-                <a href="{{ route('maestros')}}" class="text-white text-4xl italic font-bold inline-flex tracking-wide p-2">SIC</a>
+                <a href="{{ route('maestros')}}" class="text-white text-4xl italic font-bold inline-flex tracking-wide p-1">SIC</a>
                 <button id="navbar-toggler"
                     class="inline-flex  items-center justify-center border h-10 w-10 rounded-[7px_7px_7px_7px] outline-none focus:outline-none md:hidden ml-auto mt-[6px]">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
