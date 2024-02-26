@@ -1,7 +1,8 @@
 <?php
 
 use App\Http\Controllers\DocentesController;
-use App\Http\Controllers\Student\StudentController;
+// use App\Http\Controllers\Student\StudentController;
+use App\Http\Controllers\StudentController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -33,5 +34,9 @@ Route::get('/asignaturas', function() {
     return view('asignaturas');
 }) -> name('asignaturas');
 
-Route::get('/alumnos', [StudentController::class, 'index']);
-Route::post('/alumnos', [StudentController::class, 'store']);
+// Route::get('/alumnos', [StudentController::class, 'index']);
+// Route::post('/alumnos', [StudentController::class, 'store']);
+
+//RUTAS CON RECURSOS
+
+Route::resource('estudiantes', StudentController::class);

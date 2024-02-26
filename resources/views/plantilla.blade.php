@@ -33,7 +33,7 @@
                                     class="flex px-4 py-2 font-medium text-white hover:bg-[#38b696] rounded-[7px_7px_7px_7px]">Grupos</a>
                             </li>
                             <li>
-                                <a href="#"
+                                <a href="{{ url('estudiantes') }}"
                                     class="flex px-4 py-2 font-medium text-white hover:bg-[#38b696] rounded-[7px_7px_7px_7px]">Estudiantes</a>
                             </li>
                         <li>
