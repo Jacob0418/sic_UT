@@ -12,7 +12,8 @@ class StudentController extends Controller
      */
     public function index()
     {
-        $students = Student::all();
+        // $students = Student::all();
+        $students = Student::paginate(10);
         return view('students.index', ['students' => $students]);
     }
 
@@ -22,7 +23,7 @@ class StudentController extends Controller
     public function create()
     {
         $students = Student::all();
-        return view('students/create', compact('students'));
+        return view('students.create', compact('students'));
     }
 
     /**
@@ -54,6 +55,7 @@ class StudentController extends Controller
     public function show(string $id)
     {
         $student = Student::find($id);
+        // dd($student);
         return view('students.show', ['student' => $student]);
     }
 
@@ -86,7 +88,7 @@ class StudentController extends Controller
         $student -> birthday = $request -> input('birthday');
         $student -> comments = $request -> input('comments');
         $student -> save();
-        return redirect('estudiantes');
+        return redirect('estudiantes')->with('notificacion', 'Estudiante actualizado correctamente');
     }
 
     /**
@@ -98,5 +100,10 @@ class StudentController extends Controller
         $student -> delete();
 
         return redirect('estudiantes');
+    }
+
+    public function __construct()
+    {
+        $this->middleware('auth');
     }
 }

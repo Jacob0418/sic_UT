@@ -1,7 +1,6 @@
 <?php
 
-use App\Http\Controllers\DocentesController;
-// use App\Http\Controllers\Student\StudentController;
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\StudentController;
 use Illuminate\Support\Facades\Route;
 
@@ -17,26 +16,36 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('bienvenidos');
-}) -> name('panel');
-
-Route::get('/cliente/{n}', function($n) {
-    return view('cliente')-> with('clavecliente', $n);
+    return view('welcome');
 });
 
-// Route::get('/docentes', function () {
-//     return view('docentes');
-// }) -> name('docentes');
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::get('/maestros', [DocentesController::class,'index']) -> name('maestros');
+// Route::get('estudiantes', function() {
+//     return view('estudiantes');
+// }) ->middleware(['auth', 'verified'])->name('estudiantes');
 
-Route::get('/asignaturas', function() {
+Route::get('maestros', function() {
+    return view('maestros');
+}) ->middleware(['auth', 'verified'])->name('maestros');
+
+Route::get('asignaturas', function() {
     return view('asignaturas');
-}) -> name('asignaturas');
+}) ->middleware(['auth', 'verified'])->name('asignaturas');
 
-// Route::get('/alumnos', [StudentController::class, 'index']);
-// Route::post('/alumnos', [StudentController::class, 'store']);
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+    Route::resource('estudiantes', StudentController::class);
+});
 
-//RUTAS CON RECURSOS
+Route::get('accessnoauth', function() {
+    return view('accessnoauth');
+})->name('accessnoauth');
 
-Route::resource('estudiantes', StudentController::class);
+require __DIR__.'/auth.php';
+
+//RECURSOS
