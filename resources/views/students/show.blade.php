@@ -17,8 +17,10 @@
                 <p><span class="text-xl font-medium">Fecha de Nacimiento:</span> <span
                         class=" text-lg">{{ $student->birthday }}</span></p>
                 <p class="mb-4"><span class="text-xl font-medium">Comentarios:</span> <span
-                        class=" text-lg">{{ $student->comments }}</span></p>            </div>
+                        class=" text-lg">{{ $student->comments }}</span></p>
+            </div>
         </div>
-        <button class="bg-gray-500 text-white rounded-[7px_7px_7px_7px] w-24 h-10 self-center mt-3 hover:bg-[#38b696]"><a href="{{url('estudiantes')}}">Regresar</a></button>
+        <button class="bg-gray-500 text-white rounded-[7px_7px_7px_7px] w-24 h-10 self-center mt-3 hover:bg-[#38b696]"><a
+                href="{{ url('estudiantes') }}">Regresar</a></button>
     </div>
 @endsection

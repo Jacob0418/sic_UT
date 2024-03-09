@@ -26,7 +26,7 @@
                 <div id="navbar-content" class="w-full md:inline-flex md:w-auto mt-2 md:mt-0 items-center flex">
                     <ul class="md:flex-row flex md:gap-2 flex-col items-start md:items-center gap-2 ">
                         <li>
-                            <a href="{{ route('asignaturas') }}"
+                            <a href="{{ url('asignaturas') }}"
                                 class="flex px-4 p-2 font-medium text-white hover:bg-[#38b696] rounded-[7px_7px_7px_7px]">Asignaturas</a>
                         </li>
                         <li>

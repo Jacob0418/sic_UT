@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\StudentController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\SubjectController;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,15 +32,16 @@ Route::get('maestros', function() {
     return view('maestros');
 }) ->middleware(['auth', 'verified'])->name('maestros');
 
-Route::get('asignaturas', function() {
-    return view('asignaturas');
-}) ->middleware(['auth', 'verified'])->name('asignaturas');
+// Route::get('asignaturas', function() {
+//     return view('asignaturas');
+// }) ->middleware(['auth', 'verified'])->name('asignaturas');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
     Route::resource('estudiantes', StudentController::class);
+    Route::resource('asignaturas', SubjectController::class);
 });
 
 Route::get('accessnoauth', function() {
