@@ -48,6 +48,10 @@ Route::get('accessnoauth', function() {
     return view('accessnoauth');
 })->name('accessnoauth');
 
+Route::get('componente', function() {
+    return view('livewire.examples.example1');
+})->name('componente');
+
 require __DIR__.'/auth.php';
 
 //RECURSOS
